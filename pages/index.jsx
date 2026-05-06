@@ -8,7 +8,7 @@ const PaywallWrapper = dynamic(() => import('../components/PaywallWrapper'), {
 });
 
 export default function Home() {
-  const [state, setState] = useState('form');
+  const [state, setState] = useState('form'); // 'form' | 'paywall' | 'success'
   const [formData, setFormData] = useState(null);
   const [result, setResult] = useState(null);
 
@@ -20,20 +20,6 @@ export default function Home() {
   function handlePaywallContinue(selectedProduct) {
     setResult(selectedProduct);
     setState('success');
-  }
-
-  if (state === 'form') {
-    return <ProductForm onSubmit={handleFormSubmit} />;
-  }
-
-  if (state === 'paywall') {
-    return (
-      <PaywallWrapper
-        variant={formData.variant}
-        products={formData.products}
-        onContinue={handlePaywallContinue}
-      />
-    );
   }
 
   if (state === 'success') {
@@ -60,5 +46,16 @@ export default function Home() {
     );
   }
 
-  return null;
+  return (
+    <>
+      <ProductForm onSubmit={handleFormSubmit} />
+      {state === 'paywall' && formData && (
+        <PaywallWrapper
+          variant={formData.variant}
+          products={formData.products}
+          onContinue={handlePaywallContinue}
+        />
+      )}
+    </>
+  );
 }

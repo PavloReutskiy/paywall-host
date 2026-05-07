@@ -35,8 +35,8 @@ export default function ProductForm({ onSubmit }) {
             value={variant}
             onChange={(e) => setVariant(e.target.value)}
           >
-            <option value="A" disabled>Paywall A — Blue</option>
-            <option value="B" disabled>Paywall B — Green</option>
+            {/* <option value="A">Paywall A — Blue</option> */}
+            {/* <option value="B">Paywall B — Green</option> */}
             <option value="C">Paywall C — Red</option>
             <option value="D">Paywall D — Design System</option>
           </select>

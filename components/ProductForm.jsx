@@ -38,6 +38,7 @@ export default function ProductForm({ onSubmit }) {
             <option value="A">Paywall A — Blue</option>
             <option value="B">Paywall B — Green</option>
             <option value="C">Paywall C — Red</option>
+            <option value="D">Paywall D — Design System</option>
           </select>
           <span className={styles.hint}>Mocks GrowthBook A/B/C value</span>
         </div>
